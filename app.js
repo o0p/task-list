@@ -133,8 +133,15 @@ function clearTasks() {
         taskList.removeChild(taskList.firstChild);
     }
 
+    //clear from LS
+    clearTasksFromLocalStorage();
+}
+//cler tasks from LS
+function clearTasksFromLocalStorage(){
+    localStorage.clear();
 }
 
+//filter tasks
 function filterTasks(e){
     const text = e.target.value.toLowerCase();
     document.querySelectorAll('.collection-item').forEach(function(task){
