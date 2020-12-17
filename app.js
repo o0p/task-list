@@ -26,7 +26,6 @@ function getTasks(){
     } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
-
     tasks.forEach(function(task){
             //create li element
     const li = document.createElement('li');
@@ -102,12 +101,20 @@ function removeTask(e){
         ('delete-item')){
             if(confirm('Are you sure?')){
                 e.target.parentElement.parentElement.remove();
+
+                //remove from LS
+                removeTaskFromLocalStorage(e.target.parentElement.parentElement);
             }
     }
 }
 
-//clear tasks
+//remove from LS
+function removeTaskFromLocalStorage(taskItem){
+    console.log(taskItem);
+}
 
+
+//clear tasks
 function clearTasks() {
     // taskList.innerHTML = '';
     while(taskList.firstChild) {
